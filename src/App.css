@@ -1,0 +1,334 @@
+/* // Home //  */
+.navBar{
+  position: relative;
+}
+.navBar img{
+  position: absolute;
+  width: 87px;
+  top: 2vw;
+  left: 3%;
+  z-index: 5;
+  border-radius: 35px;
+}
+
+.home {
+  background-image: url(/images/background-1.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.home::before {
+  /* content: ""; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)); /* تدرج شفاف */
+  z-index: 1;
+}
+.home .home-text{
+  color: white;
+  padding: 30px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: inset 1px 1px 10px 4px #ffffff;
+  margin: 15px;
+  width: 40vw;
+  z-index: 10;
+}
+.home .home-text h1{
+  font-size: 40px;
+  margin: 0 0 15px 0;
+  font-weight: 600;
+  height: 40px;
+}
+.home .home-text p{
+  padding: 10px;
+  margin-top: 10px;
+}
+.home .images-contact{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+.home .images-contact svg{
+  width: 45px;
+  margin: 0px 20px 0px 10px;
+  cursor: pointer;
+}
+/* لأجهزة الكمبيوتر الكبيرة */
+@media (min-width: 1200px) {
+  .home .home-text {
+      font-size: 16px;
+      width: 35vw;
+  }
+}
+/* لأجهزة التابلت الأفقية */
+@media (max-width: 1199px) and (min-width: 992px) {
+  .home .home-text {
+      font-size: 16px;
+      width: 50vw;
+  }
+}
+
+/* لأجهزة التابلت العمودية */
+@media (max-width: 991px) and (min-width: 768px) {
+  .home .home-text {
+      font-size: 16px;
+      width: 60vw;
+  }
+}
+
+/* للهواتف */
+@media (max-width: 767px) {
+  .home .home-text {
+      font-size: 14px;
+      width: 80vw;
+      box-shadow: inset 1px 1px 15px 5px #ffffff;
+      margin: 100px 0px;
+  }
+}
+
+/* للهواتف الصغيرة جدًا */
+@media (max-width: 480px) {
+  .home .home-text {
+      font-size: 12px;
+      width: 90vw;
+      padding: 20px;
+      margin: 100px 0px;
+  }
+  .home .home-text h1:nth-child(2){
+    margin: 45px 0 15px 0;
+    font-size: 30px;
+  }
+}
+.list{
+  width: 100%;
+  position: relative;
+}
+.list svg{
+  position: absolute;
+  right: 0px;
+  font-size: 1000px;
+  width: 43px;
+  height: 43px;
+  margin: 20px 60px;
+  cursor: pointer;
+  z-index: 4;
+  background-color: white;
+  padding: 7px;
+  border-radius: 10px;
+}
+/* // Home //  */
+
+/* // Skills // */
+.parent {
+  background-color: black;
+  width: 100vw;
+  min-height: 100vh; /* بدل من وضع ارتفاع ثابت لكل جهاز */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mySkills {
+  font-weight: bold;
+  position: relative;
+  min-width: 215px;
+  margin: 20px 20px 0px;
+  letter-spacing: -2px;
+  color: white;
+  text-align: center;
+}
+
+.skills {
+  margin: 100px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* تلقائي حسب المساحة */
+  gap: 40px;
+  width: 90%;
+  /* max-width: 1000px; */
+  justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .parent {
+    min-height: auto;
+    padding-bottom: 50px;
+  }
+  .skills {
+    gap: 25px;
+  }
+}
+.borderSkill{
+  z-index: 2;
+  background-color: black;
+}
+.border{
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  transform: translate(0%, -10%);
+  z-index: 1;
+}
+
+/* // Skills // */
+/* Projects */
+.myProjects {
+  font-weight: bold;
+  position: relative;
+  min-width: 215px;
+  /* margin: 20px 20px 0px; */
+  letter-spacing: -2px;
+  color: white;
+  text-align: center;
+}
+.projects{
+  margin: 20px;
+  padding: 70px 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.description{
+  font-size: 50px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: 5px solid red;
+  height: 85px;
+  padding: 25px;
+  margin: auto;
+}
+.projects span img{
+  width: 50px;
+  padding: 0px;
+  margin: 2px 2px 5px 2px;
+}
+.box{
+  transform-style: preserve-3d; /* بتخلي الصوره ثلاثية الأبعاد  */
+  transition: transform .5s;
+  position: relative;
+  margin: 15px;
+}
+.face{
+  backface-visibility: hidden; /*بتخلي الظهر بتاع الصوره يختفي لما يلف*/
+}
+.front{
+  width: 300px;
+}
+.front img{
+  width: 300px;
+  height: 509px;
+}
+.back{
+  position: absolute;
+  top: 0;
+  left: 200px;
+  /* text-align: center; */
+  transform: rotateY(180deg); /* (بتخفيها backface-visibility: hidden; بتلف الصوره ال 180 درجه بس حول المحور الصادات و( باستخدام ال  */
+  width: 100px;
+  
+}
+.box.is-flibbed { /* ========================>?js */
+  transform: rotateY(180deg);
+}
+.box.moved{ /* ========================>?js */
+  display: none;
+}
+.card-text{
+  height: 95px;
+}
+
+/* // Projects // */
+
+/* Contact us  */
+.contact{
+  display: flex;
+  width: 100vw;
+  padding: 100px;
+  background-color: black;
+}
+.contact form {
+  display: flex;
+  flex-direction: column;
+  background-color: #e5e5e5;
+  padding: 30px 20px;
+  width: 80%;
+  clip-path: polygon(0 0, 100% 0%, 80% 100%, 0 100%);
+  position: relative;
+  z-index: 5;
+  right: -21px;
+}
+.contact form h1{
+  color: blueviolet;
+}
+.contact form div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35vw;
+  height: 55px;
+  padding: 10px;
+  margin: 20px;
+  border: 0;
+  outline: 0;
+  border-radius: 5px;
+  background-color: white;
+}
+.contact form div i{
+  font-size: 25px;
+  color: rgba(195, 0, 255, 0.819);
+}
+.contact form input {
+  width: 100%;
+  height: 55px;
+  padding: 10px;
+  margin: 20px;
+  border: 0;
+  outline: 0;
+  border-radius: 5px;
+}
+.contact form textarea{
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  margin: 20px;
+  border: 0;
+  outline: 0;
+  border-radius: 5px;
+}
+.contact img{
+  width: 45%;
+  position: relative;
+  z-index: 1;
+  right: 110px;
+}
+.images-contact{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* z-index: 100; */
+  background-color: black;
+}
+.images-contact svg{
+  width: 45px;
+  margin: 0px 20px 0px 10px;
+  cursor: pointer;
+}
+
+/* // Contact us // */
