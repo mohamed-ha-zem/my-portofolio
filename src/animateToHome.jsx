@@ -241,7 +241,7 @@ const useDimensions = (ref) => {
 // انشاء قائمه بتغطي الشاشه كلها بتبقه بلوريه وتظهر الصفحات اللي عند //
 
 // عمل انميشن لكتابة الكلمات حرف حرف ومسحهم حرف حرف
-const words = ["Front-End", "Back-End" , "Graphic-Designer"];
+const words = ["Front-End"];
 export const TypingEffect = () => {
     const [text, setText] = useState("");
     const [wordIndex, setWordIndex] = useState(0);

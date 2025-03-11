@@ -139,6 +139,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 60px;
 }
 
 .mySkills {
@@ -152,7 +153,7 @@
 }
 
 .skills {
-  margin: 100px 20px;
+  margin: 80px 20px 20px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* تلقائي حسب المساحة */
   gap: 40px;
@@ -189,14 +190,14 @@
   font-weight: bold;
   position: relative;
   min-width: 215px;
-  /* margin: 20px 20px 0px; */
   letter-spacing: -2px;
   color: white;
   text-align: center;
+  padding: 0px 20px 70px;
 }
 .projects{
-  margin: 20px;
-  padding: 70px 20px;
+  margin: 20px 20px 0px;
+  padding: 20px;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -218,6 +219,22 @@
   padding: 0px;
   margin: 2px 2px 5px 2px;
 }
+.card {
+  width: 300px;
+  margin: -45px 20px;
+  padding: 10px;
+  background-color: rgb(67, 67, 67) !important;
+  color: white !important;
+  position: relative;
+  left: -20px;
+}
+.card .card-title{
+  position: absolute;
+  top: 45%;
+  padding: 15px 50px;
+  border-radius: 70px 0px;
+  background-image:linear-gradient(45deg, #03A9F4, #003aff);
+}
 .box{
   transform-style: preserve-3d; /* بتخلي الصوره ثلاثية الأبعاد  */
   transition: transform .5s;
@@ -232,7 +249,11 @@
 }
 .front img{
   width: 300px;
-  height: 509px;
+  height: 527px;
+  position: relative;
+  top: -43px;
+  border-radius: 5px;
+  left: 0px;
 }
 .back{
   position: absolute;
@@ -259,8 +280,9 @@
 .contact{
   display: flex;
   width: 100vw;
-  padding: 100px;
+  padding: 70px 40px 15px 140px;
   background-color: black;
+  justify-content: center;
 }
 .contact form {
   display: flex;
@@ -330,5 +352,48 @@
   margin: 0px 20px 0px 10px;
   cursor: pointer;
 }
+/* لأجهزة التابلت العمودية */
+@media (max-width: 991px) and (min-width: 768px) {
+  .contact img{
+    display: none;
+  }
+  .contact form {
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+  }
+  .contact form div{
+    width: 50vw;
+  }
+}
 
+/* للهواتف */
+@media (max-width: 767px) {
+  .contact{
+    padding: 10px;
+  }
+  .contact img{
+    display: none;
+  }
+  .contact form {
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+  }
+  .contact form div{
+    width: 60vw;
+  }
+}
+
+/* للهواتف الصغيرة جدًا */
+@media (max-width: 480px) {
+  .contact{
+    padding: 10px;
+  }
+  .contact img{
+    display: none;
+  }
+  .contact form {
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+  }
+  .contact form div{
+    width: 50vw;
+  }
+}
 /* // Contact us // */
