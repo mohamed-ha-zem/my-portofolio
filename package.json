@@ -2,7 +2,7 @@
   "name": "my-portfolio",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://mohamed-ha-zem.github.io/My-Profile",
+  "homepage": "https://a-1portofolio.netlify.app/",
   "type": "module",
   "scripts": {
     "dev": "vite",
