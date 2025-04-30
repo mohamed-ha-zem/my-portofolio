@@ -8,7 +8,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 
 
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter basename="/My-Profile">
+  <BrowserRouter basename="/my-portofolio">
     <App />
   </BrowserRouter>,
 )
