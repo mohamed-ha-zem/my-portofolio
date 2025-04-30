@@ -1,191 +1,144 @@
 import { motion } from "framer-motion";
-import image1 from "../../public/images/logo1.png"
-import hangman from "../../public/images/hangman.png"
-import memory from "../../public/images/memory.png"
-import prayer from "../../public/images/prayer.png"
-import shopCrud from "../../public/images/shop crud.png"
-import medical from "../../public/images/medical.png"
-import shopClothes from "../../public/images/shopClothes.png"
+import { Cards } from "../ProjectsCard";
+import { useState } from "react";
 
+export default function Projects() {
+    const [filter, setFilter] = useState("All");
 
-import html from "../../public/images/html.png"
-import css from "../../public/images/css.png"
-import js from "../../public/images/js.png"
-import react from "../../public/images/react.png";
-import axios from "../../public/images/axios.png"
-import api from "../../public/images/api.png"
-import { useEffect, useRef } from "react";
+    const filters = ["All", "HTML & CSS", "JavaScript", "JavaScript & Api", "React", "React & backEnd"];
 
+    const filteredCards = filter === "All" ? Cards : Cards.filter((project) => project.category === filter);
 
-export function Card ({img , title , description , href , lang1 , lang2 , lang3 , lang4}){
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2,
+                delayChildren: 0.3,
+            },
+        },
+    };
+
+    const cardVariants = {
+        hidden: { opacity: 0, y: 50, rotateY: 180 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            rotateY: 0,
+            transition: { duration: 0.8, ease: "easeOut" },
+        },
+    };
+
+    const filterVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    };
+
+    const langVariants = {
+        hover: {
+            y: -10,
+            rotate: 10,
+            transition: { duration: 0.3, yoyo: Infinity },
+        },
+    };
+
     return (
-        <div className="card" >
-            <img src={img} style={{width: "100%" , height: "270px" , borderRadius: "10px"}} alt="project one" />
-            <div className="card-body">
-                <h5 className="card-title">{title}</h5>
-                <p className="card-text">{description}</p>
-                <div>
-                    <span><img src={lang1}/></span>
-                    <span><img src={lang2}/></span>
-                    <span><img src={lang3}/></span>
-                    <span><img src={lang4}/></span>
-                </div>
-                <motion.a 
-                    target="_blank"
-                    whileHover={{scale: 1.1}}
-                    whileTap={{scale: .8}}
-                    href={href} className="btn btn-primary">Visit now
-                </motion.a>
-            </div>
-        </div>
-    )
-}
-
-
-export default function Projects(){
-    const sectionRefs = useRef([]); // مصفوفة لتخزين المراجع لكل `projects`
-
-    useEffect(() => {
-        const observers = [];
-
-        sectionRefs.current.forEach((section) => {
-            if (!section) return;
-
-            const boxs = section.querySelectorAll(".box");
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setTimeout(() => {
-                            entry.target.classList.add("is-flibbed");
-                        } , 500)
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-
-            boxs.forEach((box) => observer.observe(box));
-            observers.push(observer);
-        });
-
-        return () => observers.forEach((observer) => observer.disconnect());
-    }, []);
-
-    
-
-
-    return(
-        <div style={{backgroundColor: "black"}}>
-            <motion.h1 className="myProjects"
-                initial={{ transform: "translateX(-102%)" }}
-                animate={{ transform: "translateX(0%)" }}
-                transition={{
-                delay: 1,
-                type: "spring",
-                stiffness: 20,
-                restDelta: 2
-                }}
+        <motion.div
+            className="projects-container"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            id="projects"
+        >
+            <motion.h1
+                className="myProjects"
+                initial={{ x: "-100%" }}
+                animate={{ x: 0 }}
+                transition={{ type: "spring", stiffness: 50, damping: 20, delay: 0.5 }}
             >
                 My Projects
             </motion.h1>
-            <div className="projects"  ref={(el) => sectionRefs.current[0] = el}> 
-                <div className="box">
-                    <div className="face front">
-                        <img src={image1}/>
-                    </div>
-                    <div className="face back">
-                        <Card img={hangman} 
-                            title="HangMan Game" 
-                            href={"https://mohamed-ha-zem.github.io/Hang_Man_Game/"} 
-                            description="The game is guess the word if you guess wrong the man will hanged and if you guess true you will be won"
-                            lang1={html} lang2={css} lang3={js}
-                        />
-                    </div>
+            <motion.div
+                className="filter-buttons container mb-4"
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+            >
+                <div className="row g-2 justify-content-center">
+                    {filters.map((category, index) => (
+                        <motion.div
+                            key={index}
+                            className="col-auto"
+                            variants={filterVariants}
+                        >
+                            <motion.button
+                                className={`filter-btn ${filter === category ? "active" : ""}`}
+                                style={{ border: "3px solid transparent" }}
+                                onClick={() => setFilter(category)}
+                                whileHover={{ scale: 1.1, boxShadow: "0px 4px 15px rgba(236, 72, 153, 0.7)" }}
+                                whileTap={{ scale: 0.9 }}
+                                animate={filter === category ? { scale: [1, 1.05, 1], transition: { duration: 1.5, repeat: Infinity } } : {}}
+                            >
+                                {category}
+                            </motion.button>
+                        </motion.div>
+                    ))}
                 </div>
-                {/* <div className="description" style={{zIndex: "0"}}>
-                    My Games
-                </div> */}
-                <div className="box">
-                    <div className="face front">
-                        <img src={image1}/>
-                    </div>
-                    <div className="face back">
-                        <Card 
-                            img={memory} 
-                            title="Memory Game" 
-                            href={"https://mohamed-ha-zem.github.io/Memory_Game/"} 
-                            description="The game is guess the picture if the one picture same the two picture you will be won but if not same it 25 time you will be lose"
-                            lang1={html} lang2={css} lang3={js}
-                            />
-                    </div>
-                </div>
+            </motion.div>
+            <div className="container">
+                <motion.div
+                    className="row projects"
+                    key={filter} // Force re-render on filter change
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate="visible"
+                >
+                    {filteredCards.map((project, index) => (
+                        <motion.div
+                            key={`${project.title}-${index}`} // Unique key for each card
+                            className="col-lg-4 col-md-6 col-sm-12 mb-4"
+                            variants={cardVariants}
+                        >
+                            <div className="card">
+                                <img
+                                    src={project.img}
+                                    style={{ width: "100%", height: "200px", borderRadius: "10px 10px 0 0" }}
+                                    alt={project.title}
+                                />
+                                <div className="card-body">
+                                    <h5 className="card-title">{project.title}</h5>
+                                    <p className="card-text mt-3">{project.desc}</p>
+                                    <div className="langs">
+                                        <div>
+                                        {project.langs.map((lang, idx) => (
+                                            <motion.span
+                                                key={idx}
+                                                whileHover="hover"
+                                                variants={langVariants}
+                                            >
+                                                <img src={lang} alt="lang" />
+                                            </motion.span>
+                                        ))}
+                                        </div>
+                                        <span className="fs-6">Res: <span className="fs-3">{project.response}</span></span>
+                                    </div>
+                                    <motion.a
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        whileHover={{ scale: 1.1, boxShadow: "0px 4px 15px rgba(236, 72, 153, 0.7)" }}
+                                        whileTap={{ scale: 0.9 }}
+                                        href={project.link}
+                                        className="btn btn-primary"
+                                    >
+                                        Visit now
+                                    </motion.a>
+                                </div>
+                            </div>
+                        </motion.div>
+                    ))}
+                </motion.div>
             </div>
-
-            <div className="projects" ref={(el) => sectionRefs.current[1] = el}> 
-                <div className="box">
-                    <div className="face front">
-                        <img src={image1}/>
-                    </div>
-                    <div className="face back">
-                        <Card img={prayer} 
-                            title="Prayer Website" 
-                            href={"https://mohamed-ha-zem.github.io/Prayer-Project/"} 
-                            description="A Website to Prayer times and find in it times all of Arab Countries."
-                            lang1={html} lang2={css} lang3={js} lang4={axios}
-                        />
-                    </div>
-                </div>
-                {/* <div className="description" style={{zIndex: "0"}}>
-                    My Games
-                </div> */}
-                <div className="box">
-                    <div className="face front">
-                        <img src={image1}/>
-                    </div>
-                    <div className="face back">
-                        <Card 
-                            img={shopCrud} 
-                            title="Shop Crud website" 
-                            href={"https://mohamed-ha-zem.github.io/CRUD-Shop/"} 
-                            description="The website to seal products and search the product and buy any products."
-                            lang1={html} lang2={css} lang3={js}
-                            />
-                    </div>
-                </div>
-            </div>
-
-            <div className="projects" ref={(el) => sectionRefs.current[2] = el}> 
-                <div className="box">
-                    <div className="face front">
-                        <img src={image1}/>
-                    </div>
-                    <div className="face back">
-                        <Card img={medical} 
-                            title="Medical Website" 
-                            href={"https://youtu.be/NehBAYS9EcA"} 
-                            description="The Medical website inside many Sections and provide inside Translation Property and button to change the colors in website."
-                            lang1={html} lang2={css} lang3={js} lang4={react}
-                        />
-                    </div>
-                </div>
-                {/* <div className="description" style={{zIndex: "0"}}>
-                    My Games
-                </div> */}
-                <div className="box">
-                    <div className="face front">
-                        <img src={image1}/>
-                    </div>
-                    <div className="face back">
-                        <Card 
-                            img={shopClothes} 
-                            title="Shop Clothes Api" 
-                            href={"https://youtu.be/9zZzzi3lIg8"} 
-                            description="The Market to buy the Clothes and use Api(laravel) inside and find in it register and login page and the responsive website."
-                            lang1={react} lang2={axios} lang3={api}
-                        />
-                    </div>
-                </div>
-            </div>
-        </div>
-    )
+        </motion.div>
+    );
 }

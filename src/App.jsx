@@ -17,18 +17,6 @@ function App() {
             <ContactUs />
           </div>
         } />
-        <Route path="/My-Profile" element={
-          <div>
-            <Home />
-            <Skills />
-            <Projects />
-            <ContactUs />
-          </div>
-        } />
-        <Route path="/home" element={<Home />} />
-        <Route path="/skills" element={<Skills />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/ContactUs" element={<ContactUs />} />
       </Routes>
     </>
   );
