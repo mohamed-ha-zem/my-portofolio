@@ -54,7 +54,7 @@ export default function ContactUs() {
             initial="hidden"
             animate="visible"
             className="contact-us"
-            id="contact"
+            id="Contact Me"
         >
             <div className="background-pattern"></div>
 

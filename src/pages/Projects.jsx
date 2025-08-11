@@ -49,7 +49,7 @@ export default function Projects() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
-            id="projects"
+            id="My Projects"
         >
             <motion.h1
                 className="myProjects"

@@ -21,15 +21,59 @@
   z-index: 5;
   border-radius: 35px;
 }
+.overlay {
+  /* position: fixed; */
+  /* top: 0; */
+  /* left: 0; */
+  /* width: 100%;
+  height: 100%; */
+  background: rgba(0, 0, 0, 0.9); /* لون الخلفية نص شفاف */
+  /* display: none; */
+  /* justify-content: center;
+  align-items: center; */
+  z-index: 999;
+  transform: scale(0);
+  transition: transform 0.6s ease-in-out;
+}
+/* التأثير الهلامي */
+.overlay.active {
+  display: flex;
+  transform: scale(1);
+  animation: jelly 0.6s ease;
+}
+/* أنيميشن الجمجمة الهلامية */
+@keyframes jelly {
+  0% { transform: scale(0); }
+  50% { transform: scale(1.2); } /* تمدد زيادة */
+  100% { transform: scale(1); } /* رجوع للحجم الطبيعي */
+}
+/* شكل الجمجمة (باستخدام clip-path أو صورة SVG) */
+.overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('skull.svg') no-repeat center; /* ضيف صورة SVG للجمجمة */
+  background-size: cover;
+  opacity: 0.3;
+  z-index: -1;
+}
 
+.overlay.active .menu a {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s; /* تأخير ظهور الروابط */
+}
 .home {
-  background-image: url(/images/background-1.jpg);
+  background-image: url('../../my-portfolio/public/images/spider.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  min-height: 95vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -39,16 +83,26 @@
   overflow-x: hidden;
 }
 
-.home::before {
+.resume{
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px auto;
+}
+
+/* .home::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
   zIndex: 1;
-}
+} */
 
 .home .home-text {
   color: white;
@@ -58,6 +112,7 @@
   box-shadow: inset 1px 1px 10px 4px #ffffff;
   margin: 15px 0;
   z-index: 10;
+  backdrop-filter: blur(5px);
 }
 
 .home .home-text h1 {
@@ -87,11 +142,12 @@
 }
 
 /* لأجهزة الكمبيوتر الكبيرة */
-@media (min-width: 1200px) {
+@media (min-width: 1199px) {
   .home .home-text {
-      width: 40%;
+      width: 50%;
       font-size: 16px;
       padding: 30px;
+      gap: 20px;
   }
 }
 
@@ -100,7 +156,8 @@
   .home .home-text {
       width: 50%;
       font-size: 16px;
-      padding: 25px;
+      padding: 30px;
+      margin-left: 20px;
   }
 }
 
@@ -186,6 +243,7 @@
   padding: 5px;
   border-radius: 8px;
 }
+
 /* // Home //  */
 
 /* // Skills // */
@@ -202,6 +260,7 @@
   align-items: center;
   padding: 60px 0;
   overflow-x: hidden;
+  position: relative;
 }
 
 .mySkills {
@@ -256,16 +315,18 @@
 .projects-container {
   width: 100%;
   min-height: 100vh;
-  background: radial-gradient(#431496, #000000);
-  background-size: 50px 50px;
-  animation: gradientShift 15s ease infinite;
+  /* background: radial-gradient(#431496, #000000);
+  animation: gradientShift 15s ease infinite; */
+  background-image: url("../public/images/squre.jpg");
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow-x: hidden;
   padding: 20px 0;
   position: relative;
+  background-size: 100px 100px;
 }
+
 
 /* .projects-container::before {
   content: "";
