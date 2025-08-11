@@ -21,53 +21,8 @@
   z-index: 5;
   border-radius: 35px;
 }
-.overlay {
-  /* position: fixed; */
-  /* top: 0; */
-  /* left: 0; */
-  /* width: 100%;
-  height: 100%; */
-  background: rgba(0, 0, 0, 0.9); /* لون الخلفية نص شفاف */
-  /* display: none; */
-  /* justify-content: center;
-  align-items: center; */
-  z-index: 999;
-  transform: scale(0);
-  transition: transform 0.6s ease-in-out;
-}
-/* التأثير الهلامي */
-.overlay.active {
-  display: flex;
-  transform: scale(1);
-  animation: jelly 0.6s ease;
-}
-/* أنيميشن الجمجمة الهلامية */
-@keyframes jelly {
-  0% { transform: scale(0); }
-  50% { transform: scale(1.2); } /* تمدد زيادة */
-  100% { transform: scale(1); } /* رجوع للحجم الطبيعي */
-}
-/* شكل الجمجمة (باستخدام clip-path أو صورة SVG) */
-.overlay::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('skull.svg') no-repeat center; /* ضيف صورة SVG للجمجمة */
-  background-size: cover;
-  opacity: 0.3;
-  z-index: -1;
-}
-
-.overlay.active .menu a {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.2s; /* تأخير ظهور الروابط */
-}
 .home {
-  background-image: url('../../my-portfolio/public/images/spider.jpg');
+  background-image: url('../public/images/spider.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
