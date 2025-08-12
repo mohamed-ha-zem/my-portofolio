@@ -43,8 +43,8 @@ export default function Home() {
     };
     
     const backgroundBlur = {
-        open: { width: '103vw', height: '103vh', top: 0, right: 15 , transition: {duration: .7, ease: "easeInOut"}},
-        closed: { width: '20px', height: '20px', top: 0, right: 15 , transition: {duration: .7, ease: "easeInOut"}},
+        open: { width: '103vw', height: '103vh', top: 0, right: 0 , transition: {duration: .7, ease: "easeInOut"}},
+        closed: { width: '20px', height: '20px', top: 0, right: 0 , transition: {duration: .7, ease: "easeInOut"}},
     }
     // قائمة العناصر (الأيقونات والنصوص)
     const items = [
