@@ -43,8 +43,8 @@ export default function Home() {
     };
     
     const backgroundBlur = {
-        open: { width: '100vw', height: '100vh', top: 0, right: 0 , transition: {duration: .7, ease: "easeInOut"}},
-        closed: { width: '20px', height: '20px', top: 0, right: 0 , transition: {duration: .7, ease: "easeInOut"}},
+        open: { width: '103vw', height: '103vh', top: 0, right: 15 , transition: {duration: .7, ease: "easeInOut"}},
+        closed: { width: '20px', height: '20px', top: 0, right: 15 , transition: {duration: .7, ease: "easeInOut"}},
     }
     // قائمة العناصر (الأيقونات والنصوص)
     const items = [
@@ -169,7 +169,6 @@ export default function Home() {
                         </motion.button>
                         {/* Nav Links */}
                         <div 
-                            style={{ position: "absolute", top: "-245px", right: "73px"}}
                         >
                             <AnimatePresence mode="wait">
                                 <motion.div
@@ -418,7 +417,8 @@ export default function Home() {
                     style={{
                         position: 'absolute',
                         bottom: window.innerWidth > 768 ? '-15px' : '-10px',
-                        width: '100vw',
+                        width: '105vw',
+                        left: "-5px",
                         height: '70px',
                         backgroundColor: 'black',
                         border: '3px solid #673AB7',

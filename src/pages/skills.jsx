@@ -163,37 +163,37 @@ export default function Skills() {
     const items = [
         {
             icon: (
-            <img src="../../public/images/html-icon.png" style={{width: "60%"}}/>
+            <img src="/images/html-icon.png" style={{width: "60%"}}/>
             ),
             text: 'HTML',
         },
         {
             icon: (
-                <img src="../../public/images/css-icon.png" style={{width: "60%"}}/>
+                <img src="/images/css-icon.png" style={{width: "60%"}}/>
             ),
             text: 'CSS',
         },
         {
             icon: (
-            <img src="../../public/images/js-icon.png" style={{width: "60%"}}/>
+            <img src="/images/js-icon.png" style={{width: "60%"}}/>
             ),
             text: 'JS',
         },
         {
             icon: (
-            <img src="../../public/images/react-icon.png" style={{width: "60%"}}/>
+            <img src="/images/react-icon.png" style={{width: "60%"}}/>
             ),
             text: 'REACT',
         },
         {
             icon: (
-            <img src="../../public/images/tailwindcss-icon.png" style={{width: "60%"}}/>
+            <img src="/images/tailwindcss-icon.png" style={{width: "60%"}}/>
             ),
             text: 'TAILWINDCSS',
         },
         {
             icon: (
-            <img src="../../public/images/motion-icon.png" style={{width: "60%"}}/>
+            <img src="/images/motion-icon.png" style={{width: "60%"}}/>
             ),
             text: 'MOTION',
         },
